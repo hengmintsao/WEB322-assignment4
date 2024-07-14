@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="bg-base-100">
+    <%- include('partials/navbar', {page: '/lego/sets'}) %>
+    <div class="container mx-auto mt-10">
+        <h1 class="text-center text-5xl font-bold mb-6">Lego Sets Collection</h1>
+        <div class="mb-4">
+            <br>
+            <a href="/lego/sets?theme=Ultimate Collector Series" class="btn btn-blue">Ultimate Collector Series Sets</a>
+            <a href="/lego/sets?theme=Fantasy Era" class="btn btn-blue">Fantasy Era Sets</a>
+            <a href="/lego/sets?theme=Modular Buildings" class="btn btn-blue">Modular Buildings Sets</a>
+            
+        </div>
+        <div class="overflow-x-auto">
+            <table class="table">
+                
+                <% sets.forEach(set => { %>
+                <tr class="hover">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="avatar">
+                            <div class="w-16 h-16 rounded overflow-hidden">
+                                <img class="rounded-lg" src="<%= set.img_url %>" alt="<%= set.name %>" class="object-cover w-full h-full" width="600"/>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="font-bold"><%= set.name %></td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <a href="/lego/sets?theme=<%= set.theme %>" class="btn btn-blue"><%= set.theme %></a>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">year:<%= set.year %></td>
+                    <td class="px-6 py-4 whitespace-nowrap">num_parts:<%= set.num_parts %></td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <a href="/lego/sets/<%= set.set_num %>" class="btn btn-blue">Details</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
