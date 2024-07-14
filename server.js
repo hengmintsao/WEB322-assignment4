@@ -7,9 +7,9 @@
 * 
 *  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
 * 
-*  Name: Hengmin Tsao Student ID: 166494229 Date: 13 JUL 2024
+*  Name: Hengmin Tsao Student ID: 166494229 Date: 14 JUL 2024
 *
-*  Published URL: 
+*  Published URL: https://web-322-assignment4.vercel.app/
 *
 ********************************************************************************/
 
@@ -23,6 +23,8 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 app.set('view engine', 'ejs');
+
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
 
