@@ -26,7 +26,11 @@ app.set('view engine', 'ejs');
 
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.static('/public'));
+app.use(express.static('public'));
+
+app.get('/css/main.css',(req,res)=>{
+    res.sendFile(path.join(__dirname,'public/css/main.css'));
+})
 
 legoData.Initialize()
     .then(() => {
